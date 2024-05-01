@@ -1,1 +1,22 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Rating Site</title>
+    <script type="module" src="./src/main.js"></script>
+    <link rel="stylesheet" href="./css/mainStyle.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
+      <form id="search-box">
+        <input type="text" id="search-input" placeholder="원하는 영화 제목을 입력하세요" />
+        <button id="search-button">검색</button>
+      </form>
+    </header>
+    <section id="content-area">
+      <ul id="card-container"></ul>
+    </section>
+  </body>
+</html>
