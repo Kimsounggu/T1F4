@@ -20,6 +20,8 @@ body {
 
 /* Header */
 nav {
+  position: fixed;
+  z-index: 999;
   color: var(--red-99);
   width: 100%;
   height: 80px;
@@ -27,15 +29,19 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--background-color);
-  padding-top: 40px;
+  background-color: var(--black-10);
+  padding: 50px 0;
 }
+nav.scrolled-down {
+  height: 80px;
+}
+
 #logo-section {
   display: flex;
 }
 #logo-section p {
   cursor: pointer;
-  font-size: medium;
+  font-size: 1.6rem;
   padding-right: 20px;
 }
 .mypage {
@@ -63,7 +69,7 @@ nav {
   cursor: pointer;
   color: var(--red-99);
   padding: 10px 15px;
-  font-size: medium;
+  font-size: 1.6rem;
   margin-left: 20px;
 }
 .loginBtn:hover,
@@ -75,7 +81,7 @@ nav {
 /* toggle */
 fieldset {
   border: none;
-  font-size: small;
+  font-size: 1.3rem;
 }
 
 label {
@@ -125,7 +131,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 130px;
 }
 
 #search-input {

@@ -19,7 +19,6 @@ nav.innerHTML = `
     <button class="loginBtn">로그인</button>
   </div>
 `;
-
 document.body.insertBefore(nav, document.body.firstChild);
 
 document.querySelector("nav").addEventListener("click", (event) => {
@@ -28,3 +27,18 @@ document.querySelector("nav").addEventListener("click", (event) => {
     window.location.href = "";
   }
 });
+
+const onScroll = (event) => {
+  const scrollPosition = event.target.scrollingElement.scrollTop;
+  if (scrollPosition > 10) {
+    if (!nav.classList.contains("scrolled-down")) {
+      nav.classList.add("scrolled-down");
+    }
+  } else {
+    if (nav.classList.contains("scrolled-down")) {
+      nav.classList.remove("scrolled-down");
+    }
+  }
+};
+
+document.addEventListener("scroll", onScroll);
