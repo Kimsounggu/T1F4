@@ -36,16 +36,19 @@ nav {
 #logo-section {
   display: flex;
 }
+
 #logo-section p {
   cursor: pointer;
   font-size: 1.6rem;
   padding-right: 20px;
 }
+
 .mypage {
   padding: 0 10px;
   margin-right: 10px;
   border-right: 1px solid var(--black-90);
 }
+
 #header-logo {
   width: 250px;
   height: auto;
@@ -53,13 +56,15 @@ nav {
   z-index: 1;
   cursor: pointer;
 }
+
 #login-section {
   margin-left: 150px;
   display: flex;
   align-items: center;
   justify-content: end;
 }
-.loginBtn {
+
+.login-button {
   background-color: var(--red-20);
   border: 1px solid var(--red-30);
   border-radius: 3px;
@@ -69,6 +74,7 @@ nav {
   font-size: 1.6rem;
   margin-left: 20px;
 }
+
 .loginBtn:hover,
 .loginBtn:active {
   background-color: initial;
@@ -88,7 +94,7 @@ label {
   cursor: pointer;
 }
 
-[type="checkbox"] {
+#toggle {
   appearance: none;
   position: relative;
   border: max(2px, 0.1em) solid var(--black-99);
@@ -97,7 +103,7 @@ label {
   height: 1.25em;
 }
 
-[type="checkbox"]::before {
+#toggle::before {
   content: "";
   position: absolute;
   left: 0;
@@ -109,17 +115,17 @@ label {
   transition: left 250ms linear;
 }
 
-[type="checkbox"]:checked {
+#toggle:checked {
   background-color: var(--red-30);
   border-color: var(--red-20);
 }
 
-[type="checkbox"]:enabled:hover {
+#toggle:enabled:hover {
   box-shadow: 0 0 0 max(1px, 0.1em) var(--black-99);
   cursor: pointer;
 }
 
-[type="checkbox"]:checked::before {
+#toggle:checked::before {
   background-color: var(--black-99);
   left: 1em;
 }

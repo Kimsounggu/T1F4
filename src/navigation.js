@@ -8,15 +8,15 @@ nav.innerHTML = `
   <div id="login-section">
     <fieldset>
       <label>
-        <input role="switch" type="checkbox" />
+        <input id="toggle" role="switch" type="checkbox" />
         <span>다크모드</span>
       </label>
       <label>
-        <input role="switch" type="checkbox" />
+        <input id="toggle" role="toggle" type="checkbox" />
         <span>언어변환</span>
       </label>
     </fieldset>
-    <button class="loginBtn">로그인</button>
+    <button class="login-button">로그인</button>
   </div>
 `;
 document.body.insertBefore(nav, document.body.firstChild);
