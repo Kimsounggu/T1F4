@@ -1,4 +1,5 @@
 import createMovieCard from "./movie.js";
+import "./navigation.js";
 
 window.onload = () => {
   document.getElementById("search-input").focus();
