@@ -32,9 +32,6 @@ nav {
   background-color: var(--black-10);
   padding: 50px 0;
 }
-nav.scrolled-down {
-  height: 80px;
-}
 
 #logo-section {
   display: flex;
