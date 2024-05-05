@@ -8,11 +8,11 @@ nav.innerHTML = `
   <div id="login-section">
     <fieldset>
       <label>
-        <input id="toggle" role="switch" type="checkbox" />
+        <input id="toggle"role="switch" type="checkbox" />
         <span>다크모드</span>
       </label>
       <label>
-        <input id="toggle" role="toggle" type="checkbox" />
+        <input id="language-toggle" role="switch" type="checkbox" />
         <span>언어변환</span>
       </label>
     </fieldset>

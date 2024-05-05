@@ -75,8 +75,8 @@ nav {
   margin-left: 20px;
 }
 
-.loginBtn:hover,
-.loginBtn:active {
+.login-button:hover,
+.login-button:active {
   background-color: initial;
   color: var(--red-30);
 }
@@ -94,7 +94,8 @@ label {
   cursor: pointer;
 }
 
-#toggle {
+#toggle,
+#language-toggle {
   appearance: none;
   position: relative;
   border: max(2px, 0.1em) solid var(--black-99);
@@ -103,7 +104,8 @@ label {
   height: 1.25em;
 }
 
-#toggle::before {
+#toggle::before,
+#language-toggle::before {
   content: "";
   position: absolute;
   left: 0;
@@ -115,17 +117,20 @@ label {
   transition: left 250ms linear;
 }
 
-#toggle:checked {
+#toggle:checked,
+#language-toggle:checked {
   background-color: var(--red-30);
   border-color: var(--red-20);
 }
 
-#toggle:enabled:hover {
+#toggle:enabled:hover,
+#language-toggle:enabled:hover {
   box-shadow: 0 0 0 max(1px, 0.1em) var(--black-99);
   cursor: pointer;
 }
 
-#toggle:checked::before {
+#toggle:checked::before,
+#language-toggle:checked::before {
   background-color: var(--black-99);
   left: 1em;
 }
@@ -161,6 +166,32 @@ label {
   width: 20px;
   height: auto;
   cursor: pointer;
+}
+
+/* pagination-section */
+#pagination-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.page-number-btn,
+#prev-page,
+#next-page {
+  cursor: pointer;
+  color: var(--black-99);
+  background-color: transparent;
+  border: none;
+  font-size: 1.9rem;
+}
+
+.page-number-btn:hover {
+  color: var(--black-40);
+}
+
+.page-number-btn.active {
+  color: var(--red-30);
 }
 
 /* movie-card */
