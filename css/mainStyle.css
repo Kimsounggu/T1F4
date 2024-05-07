@@ -104,7 +104,7 @@ header {
   border-radius: 5px;
   font-size: 1.2rem;
   line-height: 2rem;
-  color: #fff;
+  color: whitesmoke;
   transition: 0.5s;
 }
 
@@ -150,7 +150,16 @@ header {
     margin-left: 25px;
   }
 }
+
+
+#darkMode{
+  background-color: black;
+  border-radius: 100px;
+  padding: 10px;
+ margin-left: 30px; 
+}
+
 a{
+  color: black;
   text-decoration: none;
-  color:black;
 }
