@@ -17,7 +17,7 @@ const createMovieCards = () => {
 }
 
 function createMovieCard(data) {
-  const movieCard = document.createElement("li");
+  const movieCard = document.createElement("div");
   movieCard.classList.add("movie-card");
 
   movieCard.innerHTML = `

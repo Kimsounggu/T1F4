@@ -42,24 +42,6 @@ body {
     
   }
 
-  #bigbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1080px;
-  margin: 30px auto 0px auto;
-
-  }
-  .moon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1080px;
-  margin: 0px auto 0px auto;
-  height: 100px;
-  overflow: auto;
-  border: 1px solid gray;
-  }
   #darkMode{
   background-color: black;
   border-radius: 100px;
@@ -67,42 +49,54 @@ body {
   margin-left: 30px; 
   color: white;
   }
-
-
-  #content-area {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-  }
   
-  #card-container {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 380px));
-    justify-content: space-evenly;
-    gap: 40px;
-    margin: 50px 0;
-    list-style: none;
-  }
   
   .movie-card {
-    position: relative;
-    height: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 1000px;
     padding: 10px;
     border-radius: 5px;
-    background-color: white;
-    overflow: hidden;
-    cursor: pointer;
+
   }
   
-  #details{
-    border: 1px solid white;
+  .movie-info {
+    width: 100%;
+    height: 790px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+  }
+  
+ 
+  
+  .movie-img {
+    width: 100%;
+    height: 85%;
+    border-top: 5px;
+  
+  }
+  
+  .movie-title {
     display: flex;
     align-items: center;
-    justify-content:baseline;
-    padding: 50px;
+    margin-left: 12px;
+    margin-top: 12px;
+    font-size: 2rem;
+    font-weight: 600;
   }
-  #details>img{
-    width: 80%;
-    height: 700px;
+  
+  .movie-rating {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  
+  .movie-rating-number {
+    color: yellowgreen;
+    font-size: 2rem;
+    font-weight: 600;
   }
