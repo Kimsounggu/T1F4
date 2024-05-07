@@ -40,16 +40,35 @@ const displayMovies = (movies) => {
   });
 };
 
-// pagination_페이지 수 계산
 const totalPages = Math.ceil(movieStore.length / itemsPerPage);
 
 // pagination_페이지 렌더링
-function renderPage(pageNumber) {
+async function renderPage(pageNumber) {
   const startIndex = (pageNumber - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const pageData = movieStore.slice(startIndex, endIndex);
 
-  displayMovies(pageData);
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMjUxYmI1M2Q5YTNkMTA0NGRiYTcwZDFiMmI2ZGEwNSIsInN1YiI6IjY2MmNmNDRlZjZmZDE4MDEyODIyNGI3MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yGcscHFGjYQq6B7s_OqCif9IH5jw8vlFboOuJZNKnTk",
+      },
+    };
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?language=${currentLanguage}&page=${pageNumber}`,
+      options,
+    );
+    if (!response.ok) throw new Error("Failed to fetch api data");
+    const data = await response.json();
+    const allMovies = data.results;
+    const currentPageData = paginate(allMovies, pageNumber);
+    displayMovies(currentPageData);
+    updatePaginationUI();
+  } catch (error) {
+    console.error("An error occurred while fetching data:", error);
+  }
 }
 
 // pagination_UI 업데이트
@@ -77,24 +96,23 @@ function updatePaginationUI() {
   }
 }
 
-// pagination_이전 페이지 및 다음 페이지 버튼
+// pagination_이전 , 다음 페이지
 document.getElementById("prev-page").addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    renderPage(currentPage);
-    updatePaginationUI();
-    window.scrollTo(0, 0);
-  }
+  handlePageChange(currentPage - 1);
 });
 
 document.getElementById("next-page").addEventListener("click", () => {
-  if (currentPage < totalPages) {
-    currentPage++;
+  handlePageChange(currentPage + 1);
+});
+
+function handlePageChange(pageNumber) {
+  if (pageNumber >= 1 && pageNumber <= totalPages) {
+    currentPage = pageNumber;
     renderPage(currentPage);
     updatePaginationUI();
     window.scrollTo(0, 0);
   }
-});
+}
 
 // pagination_초기 페이지 로드
 renderPage(currentPage);
@@ -129,7 +147,6 @@ const toggleLanguage = async () => {
   } else {
     currentLanguage = "en-US";
   }
-
   try {
     const options = {
       method: "GET",
