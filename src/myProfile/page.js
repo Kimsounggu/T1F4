@@ -38,6 +38,3 @@ function displayBookmarkedMovies() {
     }
   }
 }
-
-// const bookmark = document.getElementById("user-bookmark");
-// const reviewCollection = document.getElementById("user-review-collection");
