@@ -7,9 +7,9 @@
     <script type="module" src="./src/main.js"></script>
     <script type="module" src="./src/login/login.js"></script>
     <script type="module" src="./src/login/signup.js"></script>
+    <script src="./src/dark.js"></script>
     <link rel="stylesheet" href="./css/designToken.css" />
     <link rel="stylesheet" href="./css/mainStyle.css" />
-    <script src="./src/dark.js"></script>
   </head>
   <body>
     <header>
@@ -17,7 +17,8 @@
       <form id="search-box">
         <input type="text" id="search-input" placeholder="원하는 영화 제목을 입력하세요" />
         <button id="search-button">검색</button>
-        <button id="dark-mode"></button>
+        <a href="./pages/myProfile.html"><p style="color: white">마이페이지이동</p></a>
+        <button id="dark-mode" onclick="nightdayhandler(this)"></button>
       </form>
       <button id="login-button">login</button>
       <button id="logout-button">logout</button>
