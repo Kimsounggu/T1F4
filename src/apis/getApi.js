@@ -14,7 +14,6 @@ const getTopRatedMovieApi = async () => {
       options,
     );
     if (!response.ok) alert("Failed to fetch api data: " + error);
-
     const apiData = await response.json();
     return apiData.results;
   } catch (error) {

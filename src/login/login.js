@@ -24,6 +24,16 @@ function closeModal() {
   toggleModal("none");
 }
 
+// 로그아웃 시 회원정보 외 다른 정보 삭제
+function clearLocalStorage(exceptKeys) {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!exceptKeys.includes(key)) {
+      localStorage.removeItem(key);
+    }
+  }
+}
+
 // 로그아웃 버튼 클릭 이벤트 처리
 const handleLogout = function () {
   alert("로그아웃 되었습니다.");
@@ -38,6 +48,10 @@ const handleLogout = function () {
   const loginButton = document.getElementById("login-button");
   inputPassword.value = ""; // input창에서 아이디 지우기
   loginButton.style.display = "block"; // 로그아웃 후 로그인 버튼 표시
+
+  const expectKey = ["username", "password", "isLogin"];
+  clearLocalStorage(expectKey);
+  localStorage.setItem("isLogin", "0");
 };
 
 // 로그인 처리
@@ -51,12 +65,14 @@ function handleLogin() {
 
   // 입력된 정보와 저장된 정보 비교
   if (username === savedUsername && password === savedPassword) {
+    console.log("hi");
     alert("로그인 성공!");
     closeModal(); // 로그인 성공 시 모달 닫기
     const loginButton = document.getElementById("login-button");
     loginButton.style.display = "none"; // 로그인 후 로그인 버튼 숨기기
     const logoutButton = document.getElementById("logout-button");
     logoutButton.style.display = "block"; // 로그인 후 로그아웃 버튼 표시
+    localStorage.setItem("isLogin", "1");
   } else {
     alert("아이디 또는 비밀번호가 올바르지 않습니다.");
   }

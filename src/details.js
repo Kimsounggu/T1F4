@@ -1,11 +1,16 @@
 import movieStore from "./store/store.js";
-//상세 페이지 api 가져오기
-console.log(window.location);
+import goToMain from "./commons/goMain.js";
+
+const headerLogo = document.getElementById("header-logo");
+headerLogo.addEventListener("click", () => {
+  goToMain();
+});
+
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
 const createMovieCards = () => {
-  const cardContainer = document.querySelector("#details");
+  const cardContainer = document.querySelector("#detail-content");
   for (let i = 0; i < movieStore.length; i++) {
     if (movieStore[i].id == id) {
       const card = createMovieCard(movieStore[i]);
@@ -14,66 +19,93 @@ const createMovieCards = () => {
   }
 };
 
+let thisMovieStore = {};
 function createMovieCard(data) {
   const movieCard = document.createElement("div");
   movieCard.classList.add("movie-card");
 
   movieCard.innerHTML = `
-      <img src="https://image.tmdb.org/t/p/w500${data.img}" alt="${data.title}" class="movie-img">
-      <div class="movie-title">${data.title}</div>
+      <div class="movie-img-wrapper">
+        <img src="https://image.tmdb.org/t/p/w500${data.widthImg}" alt="${data.title}" class="movie-img">
+      </div>
       <div class="movie-info">
-        <p class="movie-overview">${data.overview}</p>
+        <div class="movie-title">${data.title}</div>
+        <div class="movie-overview">${data.overview}</div>
         <p class="movie-rating">Rating: <span class="movie-rating-number">${data.rating}</span></p>
+        <button class="bookmark">♡</button>
       </div>
     </a>
   `;
 
+  thisMovieStore = {
+    title: data.title,
+    img: `https://image.tmdb.org/t/p/w500${data.img}`,
+  };
   return movieCard;
 }
 
 createMovieCards();
 
-// Logo Click -> 뒤로가기
-const headerLogo = document.getElementById("header-logo");
-headerLogo.addEventListener("click", () => {
-  window.history.back();
+/* !----- 북마크 기능-----! */
+const bookmarkButtons = document.querySelectorAll(".bookmark");
+
+// 페이지가 로드될 때 북마크 상태 확인 및 설정
+window.onload = function () {
+  bookmarkButtons.forEach(function (bookmarkButton) {
+    const movieTitle = thisMovieStore.title;
+    const bookmark = JSON.parse(localStorage.getItem(`bookmark-${movieTitle}`));
+    if (bookmark) {
+      bookmarkButton.textContent = "♥";
+      bookmarkButton.classList.add("heart");
+    }
+  });
+};
+
+bookmarkButtons.forEach(function (bookmarkButton) {
+  bookmarkButton.addEventListener("click", function () {
+    const movieTitle = thisMovieStore.title;
+    const bookmark = JSON.parse(localStorage.getItem(`bookmark-${movieTitle}`));
+    if (bookmark) {
+      this.textContent = "♡";
+      this.classList.remove("heart");
+      localStorage.removeItem(`bookmark-${movieTitle}`);
+      alert("북마크가 해제되었습니다.");
+    } else {
+      this.textContent = "♥";
+      this.classList.add("heart");
+      localStorage.setItem(`bookmark-${movieTitle}`, JSON.stringify(thisMovieStore));
+      alert("북마크 되었습니다.");
+    }
+  });
 });
 
-// 여기부터 댓글 기능
-
-// 댓글 내용 input가져오기
+/* !----- 리뷰 작성-----! */
 const commentForm = document.getElementById("comment-form");
 const commentList = document.getElementById("comment-list");
 const commentInput = document.getElementById("comment-input");
 
-// 페이지 로드 될 때 기본 댓글 가져오기
 commentForm.addEventListener("submit", function (event) {
-  alert("작성되었습니다!");
-  event.preventDefault(); // 폼 로드 막는 것.
+  event.preventDefault();
   let comment = commentInput.value;
-  console.log(comment);
 
-  // 댓글 객체 생성
   let newComment = {
     username: comment,
   };
 
-  // 기존 댓글 배열 가져오기
   let comments = JSON.parse(localStorage.getItem("comments")) || [];
   // 새로운 댓글 추가
   comments.push(newComment);
   localStorage.setItem("comments", JSON.stringify(comments));
   sessionStorage.setItem("lastCommented", new Date().toISOString());
 
-  //폼 초기화
   commentForm.reset();
 
-  // 1. html에 있는 ul태그에 li태그들을 추가하고싶다.
-  const review = document.createElement("li"); // 2. js 에서 li태크를 생성한다
-  review.textContent = `- ${comment}`; // 3. li태그 값을 넣는 부분
-  commentList.appendChild(review); // 4. ul태크에 li태그 추가하는 부분
+  const review = document.createElement("li");
+  review.textContent = `- ${comment}`;
+  const firstComment = commentList.firstChild;
+  commentList.insertBefore(review, firstComment);
 
-  const editButton = document.createElement("button"); //수정 버튼 생성
+  const editButton = document.createElement("button");
   editButton.textContent = "edit";
   editButton.addEventListener("click", function () {
     const originalComment = review.textContent.slice(2);
@@ -90,17 +122,18 @@ commentForm.addEventListener("submit", function (event) {
 
     if (updatedComment) {
       review.textContent = `- ${updatedComment}`;
-      review.appendChild(editButton); //li에 수정버튼 함께 등장
-      review.appendChild(deleteButton); //li에 삭제버튼 함께 등장;
+      review.appendChild(editButton);
+      review.appendChild(deleteButton);
     }
   });
-  const deleteButton = document.createElement("button"); //삭제 버튼 생성
+
+  const deleteButton = document.createElement("button");
   deleteButton.textContent = "delete";
   deleteButton.addEventListener("click", function () {
-    commentList.removeChild(review); // review를 제거한다.
+    commentList.removeChild(review);
     alert("리뷰가 삭제되었습니다!");
   });
 
-  review.appendChild(editButton); //li에 수정버튼 함께 등장
-  review.appendChild(deleteButton); //li에 삭제버튼 함께 등장
+  review.appendChild(editButton);
+  review.appendChild(deleteButton);
 });

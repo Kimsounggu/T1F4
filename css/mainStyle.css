@@ -18,6 +18,10 @@ body {
   background-color: var(--black-background-color);
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Header */
 header {
   width: 100%;
@@ -60,6 +64,7 @@ nav {
 }
 
 .mypage {
+  color: var(--white);
   padding: 0 10px;
   margin: 15px 20px 0 30px;
 }
@@ -394,6 +399,7 @@ label {
   margin-top: 12px;
   font-size: 2rem;
   font-weight: 600;
+  color: var(--black);
 }
 
 .movie-rating {
