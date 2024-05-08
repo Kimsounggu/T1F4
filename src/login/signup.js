@@ -6,7 +6,9 @@ signupForm.addEventListener("click", function () {
   modalContent.innerHTML = `
     <h2>회원가입</h2>
     <input type="text" id="signup-username" placeholder="아이디">
+    <span id="username-error"></span>
     <input type="password" id="signup-password" placeholder="비밀번호">
+    <span id="password-error"></span>
     <button id="signup-submit">가입</button>
     <hr />
     <button id="close-modal">닫기</button>
@@ -30,6 +32,9 @@ signupForm.addEventListener("click", function () {
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
 
+    const usernameError = document.getElementById("username-error");
+    const passwordError = document.getElementById("password-error");
+
     // 유효성 검사
     // 두 가지 조건 중 하나라도 만족하지 않으면 회원가입 처리 중단
     if (!validateUsername(username) || !validatePassword(password)) {
@@ -51,10 +56,14 @@ signupForm.addEventListener("click", function () {
 
     alert("회원가입이 완료되었습니다.");
 
+    window.location.reload();
+    window.scrollTo(0, 0);
+
     // 아이디 유효성 검사 함수
     function validateUsername(username) {
       if (username.trim().length < 2) {
-        alert("아이디는 최소 2글자 이상이어야 합니다.");
+        usernameError.style.display = "block";
+        usernameError.textContent = "아이디는 최소 2글자 이상이어야 합니다.";
         return false;
       }
       return true;
@@ -63,12 +72,14 @@ signupForm.addEventListener("click", function () {
     // 비밀번호 유효성 검사 함수
     function validatePassword(password) {
       if (password.trim() === "") {
-        alert("비밀번호를 입력해주세요.");
+        passwordError.style.display = "block";
+        passwordError.textContent = "비밀번호를 입력해주세요.";
         return false;
       }
       // 비밀번호는 숫자, 영어, 특수문자를 조합하여야 합니다.
       if (!password.match(/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/)) {
-        alert("비밀번호는 숫자, 영어, 특수문자를 조합하여 최소 6자 이상이어야 합니다.");
+        passwordError.style.display = "block";
+        passwordError.textContent = "비밀번호는 숫자, 영어, 특수문자를 조합하여 최소 6자 이상이어야 합니다.";
         return false;
       }
       return true;
