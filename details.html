@@ -20,6 +20,18 @@
     </header>
     <main>
       <div id="details"></div>
+      <div class="review-container">
+        <p class="review-comment">리뷰를 작성해주세요!</p>
+        <form id="comment-form">
+          <label for="username"></label>
+          <input type="text" id="comment-input" class="text" placeholder="여기에 리뷰를 남겨주세요." required />
+
+          <button type="submit" class="comment-input-btn">클릭</button>
+        </form>
+      </div>
+      <p class="review-list">리뷰 목록</p>
+
+      <ul id="comment-list"></ul>
     </main>
   </body>
 </html>
