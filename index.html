@@ -8,22 +8,22 @@
     <script src="./src/navigation.js" defer></script>
     <script type="module" src="./src/login/login.js"></script>
     <script type="module" src="./src/login/signup.js"></script>
+    <script src="./src/dark.js"></script>
     <link rel="stylesheet" href="./css/designToken.css" />
     <link rel="stylesheet" href="./css/mainStyle.css" />
-    <script src="./src/dark.js"></script>
   </head>
   <body>
     <header>
       <nav>
         <div id="logo-section">
           <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
-          <p class="mypage">마이페이지</p>
+          <a href="./pages/myProfile.html"><p class="mypage">마이페이지</p></a>
           <p>기타추가++</p>
         </div>
         <div id="login-section">
           <fieldset>
             <label>
-              <input id="dark-mode" role="switch" type="checkbox" />
+              <input id="dark-mode" role="switch" type="checkbox" onclick="nightdayhandler(this)" />
               <span>다크모드</span>
             </label>
             <label>
