@@ -317,6 +317,18 @@ label {
   background-color: var(--black-90);
 }
 
+#username-error {
+  display: none;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+#password-error {
+  display: none;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
 /* movie-card */
 #content-area {
   display: flex;

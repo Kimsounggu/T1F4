@@ -27,9 +27,16 @@ function closeModal() {
 // 로그아웃 버튼 클릭 이벤트 처리
 const handleLogout = function () {
   alert("로그아웃 되었습니다.");
+
+  const inputName = document.getElementById("login-username");
+  const inputPassword = document.getElementById("login-password");
+
   const logoutButton = document.getElementById("logout-button");
+  inputName.value = ""; // input창에서 아이디 지우기
   logoutButton.style.display = "none"; // 로그아웃 후 로그아웃 버튼 숨기기
+
   const loginButton = document.getElementById("login-button");
+  inputPassword.value = ""; // input창에서 아이디 지우기
   loginButton.style.display = "block"; // 로그아웃 후 로그인 버튼 표시
 };
 
