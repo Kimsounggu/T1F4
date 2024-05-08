@@ -100,7 +100,7 @@ body {
     font-size: 2rem;
     font-weight: 600;
   }
-  .header{
+  .review-container{
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -110,17 +110,19 @@ body {
     color: #fff;
 }
 
-h3{
+.review-list{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    color:#fff;
-    border-bottom: 0.1rem solid #d9d9d9;
-    padding-bottom: 1rem;
-    
+    font-size: 1.5rem;
+    font-weight: bold;
+    }
+.review-comment{
+  font-size: 2rem;
+    font-weight: bold;
 }
+
+
 .text{
     padding: 0.5rem 5rem 0.5rem 0.4rem;
     border-radius: 1rem;
