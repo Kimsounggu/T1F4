@@ -1,35 +1,36 @@
 /* font-setting */
 @font-face {
-  font-family: pretendard;
+  font-family: "pretendard";
   src: url(../fonts/Pretendard-Light.woff2) format("woff2");
   font-weight: 300;
 }
 @font-face {
-  font-family: pretendard;
+  font-family: "pretendard";
   src: url(../fonts/Pretendard-Regular.woff2) format("woff2");
   font-weight: 400;
 }
 @font-face {
-  font-family: pretendard;
+  font-family: "pretendard";
   src: url(../fonts/Pretendard-SemiBold.subset.woff2) format("woff2");
   font-weight: 600;
 }
 @font-face {
-  font-family: pretendard;
+  font-family: "pretendard";
   src: url(../fonts/Pretendard-Bold.subset.woff2) format("woff2");
   font-weight: 700;
 }
 @font-face {
-  font-family: pretendard;
+  font-family: "pretendard";
   src: url(../fonts/Pretendard-ExtraBold.subset.woff2) format("woff2");
   font-weight: 800;
 }
 
 /* color setting */
 :root {
-  --background-color: #0f0f0f;
+  --black-background-color: #121212;
+  --white-background-color: #ffffff;
   --white: #ffffff;
-  --black: #000000;
+  --black: #121212;
 
   --black-99: #f7f7f7;
   --black-95: #dcdcdc;
