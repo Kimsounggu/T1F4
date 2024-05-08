@@ -94,7 +94,7 @@ header {
   font-weight: 600;
 }
 
-.review-container{
+.review-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,32 +103,29 @@ header {
   color: #fff;
 }
 
-.text{
+.text {
   padding: 0.8rem 5rem 0.8rem 0.4rem;
   border-radius: 1rem;
-  padding-right: 0 ;
+  padding-right: 0;
   width: 30rem;
 }
 
-
-ul{
+ul {
   padding-left: 0;
-  margin : 0 15rem 0 20rem;
-  
+  margin: 0 15rem 0 20rem;
 }
 
 #comment-list {
   margin-bottom: 1rem;
   margin-top: 1.5rem;
   border-radius: 1rem;
-  
 }
-#comment-list li{
+#comment-list li {
   background-color: #d9d9d9;
   border: 0.2rem solid #d9d9d9;
   padding-bottom: 5rem;
   padding-left: 2rem;
-  border-radius: 1rem;;
+  border-radius: 1rem;
   margin-bottom: 1rem;
   width: auto;
   list-style: none;
@@ -139,10 +136,9 @@ ul{
 #comment-list button {
   margin-left: 0.9rem;
   border-radius: 0.4rem;
-  padding : 0.3rem 0.9rem 0.3rem 0.9rem;
-  
+  padding: 0.3rem 0.9rem 0.3rem 0.9rem;
 }
-.review-list{
+.review-list {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,14 +148,14 @@ ul{
   padding-bottom: 1rem;
 }
 
-.review-comment{
+.review-comment {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
   font-weight: bold;
 }
-.comment-input-btn{
-  padding : 0.3rem 0.9rem 0.3rem 0.9rem;
+.comment-input-btn {
+  padding: 0.3rem 0.9rem 0.3rem 0.9rem;
   border-radius: 0.8rem;
 }
