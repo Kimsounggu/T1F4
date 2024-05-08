@@ -15,7 +15,7 @@ body {
 
 body {
   font-family: "pretendard";
-  background-color: var(--background-color);
+  background-color: var(--black-background-color);
 }
 
 /* Header */
