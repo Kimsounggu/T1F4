@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Rating Site</title>
     <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/login/login.js"></script>
+    <script type="module" src="./src/login/signup.js"></script>
     <link rel="stylesheet" href="./css/designToken.css" />
     <link rel="stylesheet" href="./css/mainStyle.css" />
     <script src="./src/dark.js"></script>
@@ -17,9 +19,27 @@
         <button id="search-button">검색</button>
         <button id="darkMode"onclick="nightdayhandler(this)" > </button>
       </form>
+      <button id="login-button">login</button>
+      <button id="logout-button">logout</button>
     </header>
     <section id="content-area">
       <ul id="card-container"></ul>
     </section>
+    <div id="modal">
+      <div id="modal-popup">
+        <div id="modal-content">
+          <h2>로그인</h2>
+          <input type="text" id="login-username" placeholder="아이디" />
+          <input type="password" id="login-password" placeholder="비밀번호" />
+          <button id="login-submit">로그인</button>
+          <hr />
+          <div id="question-signup">
+            <p>계정이 없으신가요?</p>
+            <button id="signup-form">가입하기</button>
+            <button id="close-modal">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
