@@ -5,26 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Rating Site</title>
     <script type="module" src="./src/main.js"></script>
+    <script src="./src/navigation.js" defer></script>
     <script type="module" src="./src/login/login.js"></script>
     <script type="module" src="./src/login/signup.js"></script>
+    <script src="./src/dark.js"></script>
     <link rel="stylesheet" href="./css/designToken.css" />
     <link rel="stylesheet" href="./css/mainStyle.css" />
-    <script src="./src/dark.js"></script>
   </head>
   <body>
     <header>
-      <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
-      <form id="search-box">
-        <input type="text" id="search-input" placeholder="원하는 영화 제목을 입력하세요" />
-        <button id="search-button">검색</button>
-        <button id="dark-mode"></button>
-      </form>
-      <button id="login-button">login</button>
-      <button id="logout-button">logout</button>
+      <nav>
+        <div id="logo-section">
+          <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
+          <a href="./pages/myProfile.html"><p class="mypage">마이페이지</p></a>
+          <p>기타추가++</p>
+        </div>
+        <div id="login-section">
+          <fieldset>
+            <label>
+              <input id="dark-mode" role="switch" type="checkbox" />
+              <span>다크모드</span>
+            </label>
+            <label>
+              <input id="language-toggle" role="switch" type="checkbox" />
+              <span>언어</span>
+            </label>
+          </fieldset>
+          <button id="login-button">login</button>
+          <button id="logout-button">logout</button>
+        </div>
+      </nav>
     </header>
+    <form id="search-box">
+      <input type="text" id="search-input" placeholder="원하는 영화 제목을 입력하세요" />
+      <button id="search-button">검색</button>
+    </form>
     <section id="content-area">
       <ul id="card-container"></ul>
     </section>
+    <div id="pagination-section">
+      <button id="prev-page"><</button>
+      <span id="page-number">1</span>
+      <button id="next-page">></button>
+    </div>
     <div id="modal">
       <div id="modal-popup">
         <div id="modal-content">
