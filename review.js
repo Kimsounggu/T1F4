@@ -41,7 +41,6 @@ commentForm.addEventListener("submit", function (event) {
   editButton.addEventListener("click", function () {
     const originalComment = review.textContent.slice(2);
     const updatedComment = prompt("댓글을 수정해주세요");
-    console.log(originalComment);
 
     if (updatedComment === null || updatedComment.trim() === "") {
       alert("리뷰 수정을 취소하였습니다.");

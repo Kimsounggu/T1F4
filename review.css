@@ -11,7 +11,6 @@ body{
     justify-content: center;
     padding-bottom: 1rem;
     color: #fff;
-    width: 80rem;
 }
 
 h3{
@@ -23,7 +22,6 @@ h3{
     color:#fff;
     border-bottom: 0.1rem solid #d9d9d9;
     padding-bottom: 1rem;
-    width: 80rem;
     
 }
 .text{
@@ -51,10 +49,10 @@ ul{
     border: 0.2rem solid #d9d9d9;
     padding-bottom: 5rem;
     padding-left: 2rem;
-    border-radius: 1rem;
-    width: 38rem;
-    height: 0.1rem;
+    border-radius: 1rem;;
     margin-bottom: 1rem;
+    width: auto;
+    justify-content: center;
 
 }
 #comment-list button {
