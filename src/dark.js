@@ -9,7 +9,7 @@ setbackgroundcolor:function(color){
 }
 }
 function nightdayhandler(self){
-if(document.getElementById('darkMode').value === 'night'){
+if(document.getElementById('dark-mode').value === 'night'){
  Body.setbackgroundcolor('rgb(12, 10, 10)');
  Body.setcolor('white');
  self.value ='day'

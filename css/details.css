@@ -23,7 +23,7 @@ body {
     text-align: center;
     cursor: pointer;
   }
-  #loginBtn {
+  #login-btn {
     width: 100px;
     height: 50px;
     background-color: rgb(190, 41, 41);
@@ -42,7 +42,7 @@ body {
     
   }
 
-  #darkMode{
+  #dark-mode{
   background-color: black;
   border-radius: 100px;
   padding: 10px;
