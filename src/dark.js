@@ -1,4 +1,4 @@
-let body = {
+let Body = {
   setColor: function (color) {
     document.querySelector("body").style.color = color;
   },
@@ -11,12 +11,12 @@ function nightDayHandler() {
   const isDarkMode = document.body.classList.contains("dark-mode");
 
   if (isDarkMode) {
-    body.setBackgroundColor("white");
-    body.setColor("black");
+    Body.setBackgroundColor("white");
+    Body.setColor("black");
     document.body.classList.remove("dark-mode");
   } else {
-    body.setBackgroundColor("rgb(12, 10, 10)");
-    body.setColor("white");
+    Body.setBackgroundColor("rgb(12, 10, 10)");
+    Body.setColor("white");
     document.body.classList.add("dark-mode");
   }
 }
