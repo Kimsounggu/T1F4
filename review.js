@@ -1,45 +1,8 @@
-//상세 페이지 api 가져오기
-console.log(window.location);
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get("id");
-
-import movieStore from "./store/store.js";
-const createMovieCards = () => {
-  const cardContainer = document.querySelector("#details");
-  for (let i = 0; i < movieStore.length; i++) {
-    if (movieStore[i].id == id) {
-      const card = createMovieCard(movieStore[i]);
-      cardContainer.appendChild(card);
-    }
-  }
-};
-
-function createMovieCard(data) {
-  const movieCard = document.createElement("div");
-  movieCard.classList.add("movie-card");
-
-  movieCard.innerHTML = `
-      <img src="https://image.tmdb.org/t/p/w500${data.img}" alt="${data.title}" class="movie-img">
-      <div class="movie-title">${data.title}</div>
-      <div class="movie-info">
-        <p class="movie-overview">${data.overview}</p>
-        <p class="movie-rating">Rating: <span class="movie-rating-number">${data.rating}</span></p>
-      </div>
-    </a>
-  `;
-
-  return movieCard;
-}
-
-createMovieCards();
-
-// Logo Click -> 뒤로가기
-const headerLogo = document.getElementById("header-logo");
-headerLogo.addEventListener("click", () => {
-  window.history.back();
-});
-
-// 이 밑으로는 댓글 구현 코드
+// html -> kebab-case, js -> camelCase
+// 1.
+// 2.
+// 3.
+// 4.
 
 // 댓글 내용 input가져오기
 const commentForm = document.getElementById("comment-form");
@@ -48,7 +11,7 @@ const commentInput = document.getElementById("comment-input");
 
 // 페이지 로드 될 때 기본 댓글 가져오기
 commentForm.addEventListener("submit", function (event) {
-  alert("작성되었습니다!"); // 나중에 풀기
+  // alert("작성되었습니다!"); // 나중에 풀기
   event.preventDefault(); // 폼 로드 막는 것.
   let comment = commentInput.value;
   console.log(comment);
@@ -65,6 +28,7 @@ commentForm.addEventListener("submit", function (event) {
   localStorage.setItem("comments", JSON.stringify(comments));
   sessionStorage.setItem("lastCommented", new Date().toISOString());
 
+  //폼 초기화
   commentForm.reset();
 
   // 1. html에 있는 ul태그에 li태그들을 추가하고싶다.
@@ -104,3 +68,8 @@ commentForm.addEventListener("submit", function (event) {
   review.appendChild(editButton); //li에 수정버튼 함께 등장
   review.appendChild(deleteButton); //li에 삭제버튼 함께 등장
 });
+
+// 할 일
+// 로그인이 되어 있는 지 id 값으로 판별 (안되어있을 시 임시로 alert으로 경고)
+// css 만지기
+// 창을 껏다 켜도 다시 뜨게 하기

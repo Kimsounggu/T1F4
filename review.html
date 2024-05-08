@@ -3,26 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>상세페이지</title>
-    <link rel="stylesheet" href="./css/details.css" />
+    <title>영화목록</title>
     <link rel="stylesheet" href="/review.css" />
-    <script type="module" src="./src/details.js"></script>
-    <script src="./src/dark.js"></script>
-    <script src="/review.js"></script>
   </head>
   <body>
-    <header>
-      <ul class="header-nav">
-        <li><img src="./img/logo_WHITE.png" alt="logo" id="header-logo" /></li>
-        <li><a>마이 페이지</a></li>
-        <li><a>추가 페이지</a></li>
-      </ul>
-      <button id="dark-mode" onclick="nightdayhandler(this)"></button>
-      <button id="login-btn">로그인</button>
-    </header>
-    <main>
-      <div id="details"></div>
-    </main>
     <div class="header">
       <h2>리뷰를 작성해주세요!</h2>
       <form action="/ddd.html" id="comment-form">
@@ -33,6 +17,9 @@
       </form>
     </div>
     <h3>리뷰 목록</h3>
+
     <ul id="comment-list"></ul>
+
+    <script src="/review.js"></script>
   </body>
 </html>
