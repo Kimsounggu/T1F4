@@ -9,7 +9,7 @@ const createMovieCard = () => {
   });
 
   function createMovieCard(data) {
-    const movieCard = document.createElement("div");
+    const movieCard = document.createElement("li");
     movieCard.classList.add("movie-card");
 
     movieCard.innerHTML = `

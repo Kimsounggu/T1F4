@@ -1,20 +1,18 @@
-//상세 페이지 api 가져오기
-console.log(window.location)
-const urlParams = new URLSearchParams(window.location.search)
-const id = urlParams.get("id")
-
-
-
 import movieStore from "./store/store.js";
+//상세 페이지 api 가져오기
+console.log(window.location);
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
 const createMovieCards = () => {
   const cardContainer = document.querySelector("#details");
-  for(let i = 0 ; i < movieStore.length; i++){
-    if(movieStore[i].id == id){
-      const card = createMovieCard(movieStore[i]); 
+  for (let i = 0; i < movieStore.length; i++) {
+    if (movieStore[i].id == id) {
+      const card = createMovieCard(movieStore[i]);
       cardContainer.appendChild(card);
     }
   }
-}
+};
 
 function createMovieCard(data) {
   const movieCard = document.createElement("div");
@@ -34,7 +32,6 @@ function createMovieCard(data) {
 }
 
 createMovieCards();
-
 
 // Logo Click -> 뒤로가기
 const headerLogo = document.getElementById("header-logo");
