@@ -22,15 +22,6 @@ header {
   text-align: center;
   cursor: pointer;
 }
-#login-btn {
-  width: 100px;
-  height: 50px;
-  background-color: rgb(190, 41, 41);
-  border: 1px solid rgb(190, 41, 41);
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-}
 
 #header-logo {
   width: 170px;
