@@ -9,10 +9,11 @@ const createMovieCard = () => {
   });
 
   function createMovieCard(data) {
-    const movieCard = document.createElement("li");
+    const movieCard = document.createElement("div");
     movieCard.classList.add("movie-card");
 
     movieCard.innerHTML = `
+    <a href="details.html?id=${encodeURIComponent(data.id)}">
     <img src="https://image.tmdb.org/t/p/w500${data.img}" alt="${data.title}" class="movie-img">
     <div class="movie-title">${data.title}</div>
     <div class="movie-info">
@@ -21,9 +22,7 @@ const createMovieCard = () => {
     </div>
   `;
 
-    movieCard.addEventListener("click", () => {
-      alert("Movie ID: " + data.id);
-    });
+   
 
     return movieCard;
   }
