@@ -11,12 +11,12 @@ function nightDayHandler() {
   const isDarkMode = document.body.classList.contains("dark-mode");
 
   if (isDarkMode) {
-    Body.setBackgroundColor("white");
-    Body.setColor("black");
-    document.body.classList.remove("dark-mode");
-  } else {
     Body.setBackgroundColor("rgb(12, 10, 10)");
     Body.setColor("white");
+    document.body.classList.remove("dark-mode");
+  } else {
+    Body.setBackgroundColor("white");
+    Body.setColor("black");
     document.body.classList.add("dark-mode");
   }
 }
