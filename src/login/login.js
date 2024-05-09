@@ -65,7 +65,6 @@ function handleLogin() {
 
   // 입력된 정보와 저장된 정보 비교
   if (username === savedUsername && password === savedPassword) {
-    console.log("hi");
     alert("로그인 성공!");
     closeModal(); // 로그인 성공 시 모달 닫기
     const loginButton = document.getElementById("login-button");

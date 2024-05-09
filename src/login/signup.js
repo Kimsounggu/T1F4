@@ -104,6 +104,7 @@ function openSignupForm() {
       loginButton.style.display = "none"; // 로그인 후 로그인 버튼 숨기기
       const logoutButton = document.getElementById("logout-button");
       logoutButton.style.display = "block"; // 로그인 후 로그아웃 버튼 표시
+      localStorage.setItem("isLogin", "1");
     } else {
       alert("아이디 또는 비밀번호가 올바르지 않습니다.");
     }
