@@ -423,6 +423,13 @@ label {
     margin-left: 25px;
   }
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+a > p {
+  color: white;
+}
 
 /* pagination-section */
 #pagination-section {
