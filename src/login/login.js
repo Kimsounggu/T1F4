@@ -26,6 +26,7 @@ function closeModal() {
 
 // 로그아웃 시 회원정보 외 다른 정보 삭제
 function clearLocalStorage(exceptKeys) {
+  console.log(localStorage.length); // 해당 라인 추가
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     if (!exceptKeys.includes(key)) {
