@@ -40,7 +40,6 @@ header {
   cursor: pointer;
 }
 
-
 #login-btn {
   width: 100px;
   height: 50px;
@@ -50,7 +49,6 @@ header {
   border-radius: 10px;
   cursor: pointer;
 }
-
 
 #header-logo {
   width: 170px;
@@ -121,6 +119,7 @@ label {
   position: flex;
   width: 100vw;
   border-radius: 5px;
+}
 
 .movie-info {
   position: absolute;
