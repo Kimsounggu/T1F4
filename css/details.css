@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(12, 10, 10);
+  background-color: var(--black-background-color);
   color: white;
 }
 
@@ -22,15 +22,6 @@ header {
   text-align: center;
   cursor: pointer;
 }
-#login-btn {
-  width: 100px;
-  height: 50px;
-  background-color: rgb(190, 41, 41);
-  border: 1px solid rgb(190, 41, 41);
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-}
 
 #header-logo {
   width: 170px;
@@ -38,14 +29,6 @@ header {
   margin-left: 20px;
   z-index: 1;
   cursor: pointer;
-}
-
-#dark-mode {
-  background-color: black;
-  border-radius: 100px;
-  padding: 10px;
-  margin-left: 30px;
-  color: white;
 }
 
 .movie-card {
@@ -158,4 +141,56 @@ ul {
 .comment-input-btn {
   padding: 0.3rem 0.9rem 0.3rem 0.9rem;
   border-radius: 0.8rem;
+}
+
+fieldset {
+  border: none;
+  font-size: 1.3rem;
+}
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+}
+
+#dark-mode,
+#language-toggle {
+  appearance: none;
+  position: relative;
+  border: max(2px, 0.1em) solid var(--black-99);
+  border-radius: 1.25em;
+  width: 2.25em;
+  height: 1.25em;
+}
+
+#dark-mode::before,
+#language-toggle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: scale(0.8);
+  background-color: var(--black-99);
+  transition: left 250ms linear;
+}
+
+#dark-mode:checked,
+#language-toggle:checked {
+  background-color: var(--red-30);
+  border-color: var(--red-20);
+}
+
+#dark-mode:enabled:hover,
+#language-toggle:enabled:hover {
+  box-shadow: 0 0 0 max(1px, 0.1em) var(--black-99);
+  cursor: pointer;
+}
+
+#dark-mode:checked::before,
+#language-toggle:checked::before {
+  background-color: var(--black-99);
+  left: 1em;
 }
