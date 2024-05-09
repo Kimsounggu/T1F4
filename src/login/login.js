@@ -26,7 +26,6 @@ function closeModal() {
 
 // 로그아웃 시 회원정보 외 다른 정보 삭제
 function clearLocalStorage(exceptKeys) {
-  console.log(localStorage.length); // 해당 라인 추가
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     if (!exceptKeys.includes(key)) {
@@ -66,7 +65,6 @@ function handleLogin() {
 
   // 입력된 정보와 저장된 정보 비교
   if (username === savedUsername && password === savedPassword) {
-    console.log("hi");
     alert("로그인 성공!");
     closeModal(); // 로그인 성공 시 모달 닫기
     const loginButton = document.getElementById("login-button");
