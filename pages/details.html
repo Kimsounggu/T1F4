@@ -3,21 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Rating Site</title>
-    <script type="module" src="./src/main.js"></script>
-    <script type="module" src="./src/navigation.js"></script>
-    <script type="module" src="./src/login/login.js"></script>
-    <script type="module" src="./src/login/signup.js"></script>
-    <script src="./src/dark.js"></script>
-    <link rel="stylesheet" href="./css/designToken.css" />
-    <link rel="stylesheet" href="./css/mainStyle.css" />
+    <title>상세페이지</title>
+    <link rel="stylesheet" href="../css/details.css" />
+    <link rel="stylesheet" href="../css/designToken.css" />
+    <script type="module" src="../src/login/login.js"></script>
+    <script type="module" src="../src/login/signup.js"></script>
+    <script type="module" src="../src/details.js"></script>
+    <script src="../src/dark.js"></script>
   </head>
   <body>
     <header>
       <nav>
         <div id="logo-section">
-          <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
-          <a href="./pages/myProfile.html"><p class="mypage">마이페이지</p></a>
+          <img src="../img/logo_WHITE.png" alt="logo" id="header-logo" />
+          <a href="./myProfile.html"><p class="mypage">마이페이지</p></a>
         </div>
         <div id="login-section">
           <fieldset>
@@ -35,18 +34,24 @@
         </div>
       </nav>
     </header>
-    <form id="search-box">
-      <input type="text" id="search-input" placeholder="원하는 영화 제목을 입력하세요" />
-      <button id="search-button">검색</button>
-    </form>
-    <section id="content-area">
-      <ul id="card-container"></ul>
-    </section>
-    <div id="pagination-section">
-      <button id="prev-page">&lt;</button>
-      <span id="page-number">1</span>
-      <button id="next-page">&gt;</button>
-    </div>
+    <main>
+      <section id="detail-content"></section>
+      <div class="hi"></div>
+      <div class="review-container">
+        <p class="review-comment">리뷰를 작성해주세요!</p>
+        <form id="comment-form">
+          <label for="comment-input"></label>
+          <input type="text" id="comment-input" class="text" placeholder="여기에 리뷰를 남겨주세요." required />
+          <button type="submit" class="comment-input-btn">등록</button>
+        </form>
+      </div>
+
+      <div class="review-list">리뷰 목록</div>
+      <div class="comment-container">
+        <ul id="comment-list"></ul>
+      </div>
+    </main>
+
     <div id="modal">
       <div id="modal-popup">
         <div id="modal-content">

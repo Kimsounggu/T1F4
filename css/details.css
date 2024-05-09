@@ -16,10 +16,7 @@ body {
 body {
   font-family: "pretendard";
   background-color: var(--black-background-color);
-}
-
-a {
-  text-decoration: none;
+  color: white;
 }
 
 /* Header */
@@ -136,39 +133,6 @@ label {
 #language-toggle:checked::before {
   background-color: var(--black-99);
   left: 1em;
-}
-
-#search-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50px;
-}
-
-#search-input {
-  font-family: inherit;
-  width: 370px;
-  height: 35px;
-  padding: 2px 8px;
-  border-radius: 5px;
-  font-size: 1.2rem;
-}
-
-#search-button {
-  font-family: inherit;
-  width: 60px;
-  height: 35px;
-  border-radius: 5px;
-}
-
-#search-button:active {
-  background-color: var(--black-90);
-}
-
-#search-icon {
-  width: 20px;
-  height: auto;
-  cursor: pointer;
 }
 
 #login-button {
@@ -348,125 +312,194 @@ label {
   font-size: 1.2rem;
 }
 
-/* movie-card */
-#content-area {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-#card-container {
-  width: 90%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 380px));
-  justify-content: space-evenly;
-  gap: 40px;
-  margin: 50px 0;
-  list-style: none;
+/* !----- body -----! */
+#detail-content {
+  width: 100vw;
 }
 
 .movie-card {
-  position: relative;
-  height: 550px;
-  padding: 10px;
+  position: flex;
+  width: 100vw;
   border-radius: 5px;
-  background-color: var(--black-99);
-  overflow: hidden;
-  cursor: pointer;
 }
 
 .movie-info {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
   position: absolute;
-  justify-content: center;
-  top: 0;
-  right: -100%;
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(3px);
-  border-radius: 5px;
-  font-size: 1.2rem;
-  line-height: 2rem;
-  color: whitesmoke;
-  transition: 0.5s;
-}
-
-.movie-card:hover .movie-info {
-  right: 0;
-  transition-delay: 0s;
+  top: 250px;
+  left: 20px;
+  width: 100%;
+  padding: 20px;
+  color: var(--white);
+  box-sizing: border-box;
 }
 
 .movie-img {
+  display: block;
   width: 100%;
-  height: 85%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  height: 680px;
+}
+
+.movie-img-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.movie-img-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .movie-title {
   display: flex;
   align-items: center;
-  margin-left: 12px;
   margin-top: 12px;
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--black);
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.movie-overview {
+  width: 650px;
+  margin: 20px 0 30px 0;
+  font-size: 1.6rem;
+  line-height: 162%;
 }
 
 .movie-rating {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
 .movie-rating-number {
   color: yellowgreen;
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 600;
 }
 
-@media (max-width: 1080px) {
-  #header-logo {
-    display: none;
-  }
-
-  #search-input {
-    width: 300px;
-    margin-left: 25px;
-  }
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-a > p {
-  color: white;
+.bookmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border: 2px solid var(--black-90);
+  border-radius: 5px;
+  font-size: 1.8rem;
+  color: var(--red-60);
+  cursor: pointer;
 }
 
-/* pagination-section */
-#pagination-section {
+.bookmark:active {
+  background-color: var(--black-90);
+}
+
+.heart {
+  font-size: 2.4rem;
+}
+
+.empty-heart {
+  font-size: 1.8rem;
+}
+
+/* !----- 리뷰 작성-----! */
+.review-container {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0 80px 0;
+  color: var(--white);
+}
+
+.review-comment {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 70px;
+  font-size: 2.8rem;
+  font-weight: 600;
 }
 
-.page-number-btn,
-#prev-page,
-#next-page {
+#comment-input {
+  width: 500px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.comment-input-btn {
+  width: 70px;
+  height: 40px;
+  border-radius: 0.8rem;
+  font-family: pretendard;
+  font-weight: 400;
   cursor: pointer;
-  color: var(--black-99);
-  background-color: transparent;
-  border: none;
-  font-size: 1.9rem;
 }
 
-.page-number-btn:hover {
-  color: var(--black-40);
+.comment-input-btn:active {
+  background-color: var(--black-90);
 }
 
-.page-number-btn.active {
-  color: var(--red-30);
+.comment-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 500px;
+  margin-top: 50px;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  border-bottom: 4px solid #d9d9d9;
+  padding-bottom: 1rem;
+}
+
+.text {
+  padding: 0.8rem 5rem 0.8rem 0.4rem;
+  border-radius: 1rem;
+  padding-right: 0;
+  width: 30rem;
+  font-weight: 400;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0 15rem 0 20rem;
+}
+
+#comment-list {
+  margin: 10px 0;
+  border-radius: 15px;
+}
+
+#comment-list li {
+  max-width: 1000px;
+  min-width: 1000px;
+  min-height: 120px;
+  background-color: var(--review-list-color);
+  border: 3px solid var(--review-list-color);
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: auto;
+  list-style: none;
+  color: black;
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+#comment-list button {
+  margin-left: 0.9rem;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.9rem;
 }
