@@ -11,21 +11,24 @@
   </head>
   <body>
     <header>
-      <ul class="header-nav">
-        <li><img src="./img/logo_WHITE.png" alt="logo" id="header-logo" /></li>
-        <li><a>마이 페이지</a></li>
-        <li><a>추가 페이지</a></li>
-      </ul>
-      <fieldset>
-        <label>
-          <input id="dark-mode" role="switch" type="checkbox" />
-          <span>다크모드</span>
-        </label>
-        <label>
-          <input id="language-toggle" role="switch" type="checkbox" />
-          <span>언어</span>
-        </label>
-      </fieldset>
+      <nav>
+        <div id="logo-section">
+          <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
+          <a href="./pages/myProfile.html"><p class="mypage">마이페이지</p></a>
+        </div>
+        <div id="login-section">
+          <fieldset>
+            <label>
+              <input id="dark-mode" role="switch" type="checkbox" />
+              <span>다크모드</span>
+            </label>
+            <label>
+              <input id="language-toggle" role="switch" type="checkbox" />
+              <span>언어</span>
+            </label>
+          </fieldset>
+        </div>
+      </nav>
     </header>
     <main>
       <section id="detail-content"></section>

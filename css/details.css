@@ -23,45 +23,53 @@ header {
   width: 100%;
   height: 80px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
 }
 
-.header-nav {
+nav {
+  position: fixed;
+  z-index: 999;
+  color: var(--red-99);
+  width: 100%;
+  height: 80px;
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header-nav a {
-  padding: 30px;
-  text-align: center;
-  cursor: pointer;
-}
-
-#login-btn {
-  width: 100px;
-  height: 50px;
-  background-color: rgb(190, 41, 41);
-  border: 1px solid rgb(190, 41, 41);
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--black-10);
+  padding: 50px 0;
 }
 
 #header-logo {
   width: 170px;
-  height: auto;
-  margin-left: 20px;
+  height: 35px;
+  margin-top: 5px;
   z-index: 1;
   cursor: pointer;
+}
+
+#logo-section {
+  display: flex;
+}
+
+#logo-section p {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding-right: 20px;
+}
+
+.mypage {
+  color: var(--white);
+  padding: 0 10px;
+  margin: 15px 20px 0 30px;
 }
 
 fieldset {
   border: none;
   font-size: 1.3rem;
 }
+
 label {
   display: inline-flex;
   align-items: center;
@@ -108,6 +116,10 @@ label {
 #language-toggle:checked::before {
   background-color: var(--black-99);
   left: 1em;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* !----- body -----! */
