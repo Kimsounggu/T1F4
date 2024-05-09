@@ -1,6 +1,42 @@
 import movieStore from "./store/store.js";
 import goToMain from "./commons/goMain.js";
 
+loadisLogin();
+
+function loadisLogin() {
+  let isLogin = localStorage.getItem("isLogin");
+  if (isLogin === "1") {
+    showLogoutButton();
+  } else {
+    showLoginButton();
+  }
+}
+
+function showLogoutButton() {
+  let logoutButton = document.getElementById("logout-button");
+  let loginButton = document.getElementById("login-button");
+  logoutButton.style.display = "block";
+  loginButton.style.display = "none";
+}
+
+function showLoginButton() {
+  let logoutButton = document.getElementById("logout-button");
+  let loginButton = document.getElementById("login-button");
+  logoutButton.style.display = "none";
+  loginButton.style.display = "block";
+}
+
+// 비로그인 유저 마이페이지 접근 불가
+const myPageLink = document.querySelector(".mypage");
+
+myPageLink.addEventListener("click", function (event) {
+  const isLogin = localStorage.getItem("isLogin");
+  if (isLogin !== "1") {
+    event.preventDefault();
+    alert("로그인이 필요합니다.");
+  }
+});
+
 const headerLogo = document.getElementById("header-logo");
 headerLogo.addEventListener("click", () => {
   goToMain();
@@ -63,6 +99,12 @@ window.onload = function () {
 
 bookmarkButtons.forEach(function (bookmarkButton) {
   bookmarkButton.addEventListener("click", function () {
+    const isLogin = localStorage.getItem("isLogin");
+    if (isLogin !== "1") {
+      alert("로그인이 필요합니다!");
+      return;
+    }
+
     const movieTitle = thisMovieStore.title;
     const bookmark = JSON.parse(localStorage.getItem(`bookmark-${movieTitle}`));
     if (bookmark) {
@@ -86,6 +128,13 @@ const commentInput = document.getElementById("comment-input");
 
 commentForm.addEventListener("submit", function (event) {
   event.preventDefault();
+  const isLogin = localStorage.getItem("isLogin");
+  if (isLogin !== "1") {
+    event.preventDefault();
+    alert("로그인이 필요합니다!");
+    return;
+  }
+
   let comment = commentInput.value;
 
   let newComment = {
@@ -108,6 +157,12 @@ commentForm.addEventListener("submit", function (event) {
   const editButton = document.createElement("button");
   editButton.textContent = "edit";
   editButton.addEventListener("click", function () {
+    const isLogin = localStorage.getItem("isLogin");
+    if (isLogin !== "1") {
+      alert("로그인이 필요합니다!");
+      return;
+    }
+
     const originalComment = review.textContent.slice(2);
     const updatedComment = prompt("댓글을 수정해주세요");
 
@@ -130,6 +185,12 @@ commentForm.addEventListener("submit", function (event) {
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "delete";
   deleteButton.addEventListener("click", function () {
+    const isLogin = localStorage.getItem("isLogin");
+    if (isLogin !== "1") {
+      alert("로그인이 필요합니다!");
+      return;
+    }
+
     commentList.removeChild(review);
     alert("리뷰가 삭제되었습니다!");
   });

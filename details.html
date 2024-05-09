@@ -6,26 +6,33 @@
     <title>상세페이지</title>
     <link rel="stylesheet" href="./css/details.css" />
     <link rel="stylesheet" href="./css/designToken.css" />
+    <script type="module" src="./src/login/login.js"></script>
+    <script type="module" src="./src/login/signup.js"></script>
     <script type="module" src="./src/details.js"></script>
     <script src="./src/dark.js"></script>
   </head>
   <body>
     <header>
-      <ul class="header-nav">
-        <li><img src="./img/logo_WHITE.png" alt="logo" id="header-logo" /></li>
-        <li><a>마이 페이지</a></li>
-        <li><a>추가 페이지</a></li>
-      </ul>
-      <fieldset>
-        <label>
-          <input id="dark-mode" role="switch" type="checkbox" />
-          <span>다크모드</span>
-        </label>
-        <label>
-          <input id="language-toggle" role="switch" type="checkbox" />
-          <span>언어</span>
-        </label>
-      </fieldset>
+      <nav>
+        <div id="logo-section">
+          <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
+          <a href="./pages/myProfile.html"><p class="mypage">마이페이지</p></a>
+        </div>
+        <div id="login-section">
+          <fieldset>
+            <label>
+              <input id="dark-mode" role="switch" type="checkbox" />
+              <span>다크모드</span>
+            </label>
+            <label>
+              <input id="language-toggle" role="switch" type="checkbox" />
+              <span>언어</span>
+            </label>
+          </fieldset>
+          <button id="login-button">login</button>
+          <button id="logout-button">logout</button>
+        </div>
+      </nav>
     </header>
     <main>
       <section id="detail-content"></section>
@@ -44,5 +51,22 @@
         <ul id="comment-list"></ul>
       </div>
     </main>
+
+    <div id="modal">
+      <div id="modal-popup">
+        <div id="modal-content">
+          <h2>로그인</h2>
+          <input type="text" id="login-username" placeholder="아이디" />
+          <input type="password" id="login-password" placeholder="비밀번호" />
+          <button id="login-submit">로그인</button>
+          <hr />
+          <div id="question-signup">
+            <p>계정이 없으신가요?</p>
+            <button id="signup-form">가입하기</button>
+            <button id="close-modal">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
