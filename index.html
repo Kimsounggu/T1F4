@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Rating Site</title>
     <script type="module" src="./src/main.js"></script>
-    <script src="./src/navigation.js" defer></script>
+    <script type="module" src="./src/navigation.js"></script>
     <script type="module" src="./src/login/login.js"></script>
     <script type="module" src="./src/login/signup.js"></script>
     <script src="./src/dark.js"></script>
@@ -18,7 +18,6 @@
         <div id="logo-section">
           <img src="./img/logo_WHITE.png" alt="logo" id="header-logo" />
           <a href="./pages/myProfile.html"><p class="mypage">마이페이지</p></a>
-          <p>기타추가++</p>
         </div>
         <div id="login-section">
           <fieldset>
@@ -44,9 +43,9 @@
       <ul id="card-container"></ul>
     </section>
     <div id="pagination-section">
-      <button id="prev-page"><</button>
+      <button id="prev-page">&lt;</button>
       <span id="page-number">1</span>
-      <button id="next-page">></button>
+      <button id="next-page">&gt;</button>
     </div>
     <div id="modal">
       <div id="modal-popup">
