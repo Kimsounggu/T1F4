@@ -16,7 +16,7 @@ const createMovieCard = (data) => {
   const rating = data.vote_average || data.rating;
 
   movieCard.innerHTML = `
-  <a href="details.html?id=${encodeURIComponent(data.id)}">
+  <a href="../pages/details.html?id=${encodeURIComponent(data.id)}">
   <img src="https://image.tmdb.org/t/p/w500${imgSrc}" alt="${data.title}" class="movie-img">
     <div class="movie-title">${data.title}</div>
     <div class="movie-info">

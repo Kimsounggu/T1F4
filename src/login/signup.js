@@ -63,13 +63,12 @@ function openSignupForm() {
     var modal = document.getElementById("modal");
     modal.style.display = display;
 
-    // 모달이 열리거나 닫힐 때 로그인/로그아웃 버튼 표시 변경
     const loginButton = document.getElementById("login-button");
     if (display === "none") {
       const logoutButton = document.getElementById("logout-button");
       if (loginButton.style.display === "none") {
-        loginButton.style.display = "block"; // 로그아웃 후 로그인 버튼 표시
-        logoutButton.style.display = "none"; // 모달이 닫힐 때 로그아웃 버튼 숨기기
+        loginButton.style.display = "block";
+        logoutButton.style.display = "none";
       }
     }
   }
@@ -77,12 +76,10 @@ function openSignupForm() {
   const loginButton = document.getElementById("login-button");
   loginButton.addEventListener("click", openModal);
 
-  // 모달 열기
   function openModal() {
     toggleModal("block");
   }
 
-  // 모달 닫기
   function afterLoginCloseModal() {
     toggleModal("none");
   }
@@ -92,18 +89,16 @@ function openSignupForm() {
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
 
-    // 저장된 회원가입 정보 가져오기
     let savedUsername = localStorage.getItem("username");
     let savedPassword = localStorage.getItem("password");
 
-    // 입력된 정보와 저장된 정보 비교
     if (username === savedUsername && password === savedPassword) {
       alert("로그인 성공!");
-      afterLoginCloseModal(); // 로그인 성공 시 모달 닫기
+      afterLoginCloseModal();
       const loginButton = document.getElementById("login-button");
-      loginButton.style.display = "none"; // 로그인 후 로그인 버튼 숨기기
+      loginButton.style.display = "none";
       const logoutButton = document.getElementById("logout-button");
-      logoutButton.style.display = "block"; // 로그인 후 로그아웃 버튼 표시
+      logoutButton.style.display = "block";
       localStorage.setItem("isLogin", "1");
     } else {
       alert("아이디 또는 비밀번호가 올바르지 않습니다.");
@@ -122,11 +117,11 @@ function openSignupForm() {
     if (signupUsername.length < 2) {
       usernameError.style.display = "block";
       usernameError.textContent = "아이디는 최소 2글자 이상이어야 합니다.";
-      passwordError.textContent = ""; // 오류 메시지 초기화
+      passwordError.textContent = "";
       return; // 유효성 검사에 실패하면 처리 중단
     } else {
       usernameError.style.display = "none";
-      usernameError.textContent = ""; // 오류 메시지 초기화
+      usernameError.textContent = "";
     }
 
     // 비밀번호 유효성 검사
@@ -140,7 +135,7 @@ function openSignupForm() {
       return; // 유효성 검사에 실패하면 처리 중단
     } else {
       passwordError.style.display = "none";
-      passwordError.textContent = ""; // 오류 메시지 초기화
+      passwordError.textContent = "";
     }
 
     // 저장된 회원가입 정보 가져오기
